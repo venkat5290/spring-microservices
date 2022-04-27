@@ -27,6 +27,16 @@ spring:
                 name: DEP-SVC
                 fallbackuri: forward:/fallback/depFallBack
 
+eureka:
+  instance:
+    preferIpAddress: true
+    hostname: eureka-0.eureka
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:8761/eureka
+
 #Exposing Endpoints from actuator
 management:
   health:
@@ -72,4 +82,5 @@ resilience4j:
         limitForPeriod: 10
         limitRefreshPeriod: 10s
         timeoutDuration: 3s
+
 
